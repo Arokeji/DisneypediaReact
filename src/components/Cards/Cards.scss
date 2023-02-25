@@ -1,0 +1,28 @@
+.cards {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+        background-color: white;
+        max-width: fit-content;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    &__pic {
+        max-height: 50px;
+        
+    }
+
+    &__name {
+        
+    }
+}
+
+img {
+    height: 100px;
+    border-radius: 5px;
+}

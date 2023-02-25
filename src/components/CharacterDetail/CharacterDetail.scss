@@ -1,0 +1,38 @@
+.cards {
+
+    &__fullscreen {
+        background-color: rgba(0, 0, 0, 0.5);
+        min-width: 100%;
+        min-height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    &__modal {
+        background-color: white;
+        position: absolute;
+        width: fit-content;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0px 50px 50px 50px;
+        min-width: 500px;
+    }
+
+    &__title {
+        padding: 30px;
+        font-size: 25px;
+    }
+
+    &__pic{
+
+        &--big {
+            min-height: 200px;
+        }
+    }
+
+    &__bold {
+        font-weight: bold;
+    }
+}

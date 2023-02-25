@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.header {
+
+  &__title {
+    margin: 30px;
+    font-weight: 300;
+    color: white;
+  }
+}
