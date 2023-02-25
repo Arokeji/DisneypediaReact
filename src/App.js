@@ -8,7 +8,7 @@ function App() {
 
   const [maxPage, setMaxPage] = React.useState();
 
-  const [page, setPage] = React.useState(148); 
+  const [page, setPage] = React.useState(1); 
 
   const [previousPageVisible, setPreviousPageVisible] = React.useState(false);
 
