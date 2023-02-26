@@ -1,6 +1,7 @@
 import './Cards.scss'
 import React from 'react';
 import CharacterDetail from '../CharacterDetail/CharacterDetail';
+import Loading from '../Loading/Loading';
 
 const API_URL = "https://api.disneyapi.dev/characters?page=";
 
@@ -10,17 +11,21 @@ const Cards = ({page}) => {
 
     const [showDetails, setShowDetails] = React.useState();
 
+    const [loadingStatus, setLoadingStatus] = React.useState(false);
+
     const fullScreenDetails = (card) => {
         setShowDetails(card);
     }
 
     React.useEffect(() => {
 
+        setLoadingStatus(true);
         // Llamada a la API
         fetch(API_URL + page)
             .then((response) => response.json())
             .then((data) => {
                 setCardsList(data);
+                setLoadingStatus(false);
             });
     }, [page])
     
@@ -39,6 +44,7 @@ const Cards = ({page}) => {
             })) : ("No hay")
         }
         { showDetails && <CharacterDetail showDetails={ showDetails } setShowDetails={ setShowDetails } /> }
+        {loadingStatus && <Loading></Loading>}
         </div>
 
     );
