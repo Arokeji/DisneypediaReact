@@ -8,11 +8,7 @@ function App() {
 
   const [maxPage, setMaxPage] = React.useState();
 
-  const [page, setPage] = React.useState(1); 
-
-  const [previousPageVisible, setPreviousPageVisible] = React.useState(false);
-
-  const [nextPageVisible, setNextPageVisible] = React.useState(true);
+  const [page, setPage] = React.useState(148); 
 
   React.useEffect(() => {
 
@@ -24,18 +20,6 @@ function App() {
         });
   }, [])
 
-  const nextPage = () => {
-    console.log(maxPage + " y " + page);
-    maxPage &&
-      page === maxPage ? setNextPageVisible(false) : setPage(page + 1);
-
-    setPreviousPageVisible(true);
-  }
-
-  const previousPage = () => {
-    page > 1 ? setPage(page - 1) : console.log("No hay");
-  }
-
   return (
     <div className="App">
       <header className='header'>
@@ -43,13 +27,9 @@ function App() {
       </header>
       <Cards page={ page }/>
       <nav>
-        {previousPageVisible &&
-          <button onClick={() => previousPage()}>Previous</button>
-        }
+        <button disabled={ page === 1 } onClick={() => setPage(page - 1)}>Previous</button>
         { page }
-        {nextPageVisible &&
-          <button onClick={() => nextPage()}>Next</button>
-        }
+        <button disabled={ page === maxPage } onClick={() => setPage(page + 1)}>Next</button>
       </nav>
     </div>
   );
